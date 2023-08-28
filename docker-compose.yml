@@ -2,7 +2,17 @@ version: '3'
 
 services:
 
-
+  database:
+    image: mysql:8.1
+    container_name: database
+    environment:
+      MYSQL_DATABASE: db_safexpress
+      MYSQL_USER: app
+      MYSQL_PASSWORD=: c0deSafe
+      MYSQL_ROOT_PASSWORD: c0deSafe
+   
+    volumes:
+      - mysql-data:/var/lib/mysql
   phpmyadmin:
     image: phpmyadmin:latest
     ports:
