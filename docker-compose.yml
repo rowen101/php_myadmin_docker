@@ -2,15 +2,23 @@ version: '3'
 services:
   mysql:
     image: mysql:latest
-    container_name: mysql
+    container_name: mysql-container
     environment:
-      MYSQL_ROOT_PASSWORD: c0deSafe
+      MYSQL_ROOT_PASSWORD: codesafe
       MYSQL_DATABASE: db_safexpress
-      MYSQL_USER: app
-      MYSQL_PASSWORD: c0deSafe
+      MYSQL_USER: root
+      MYSQL_PASSWORD: codesafe
     ports:
       - "3306:3306"
-    volumes:
-      - mysql-data:/var/lib/mysql
-volumes:
-  mysql-data:
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: phpmyadmin-container
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: root
+      PMA_PASSWORD: ''
+    ports:
+      - "8080:80"
+    depends_on:
+      - mysql
