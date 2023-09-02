@@ -3,15 +3,22 @@ version: '3.8'
 services:
   db:
     image: mysql
-    restart: always
     container_name: my-mysql-container
     environment:
-      MYSQL_ROOT_PASSWORD: codesafe
-      MYSQL_DATABASE: db_safexpress
+     MYSQL_DATABASE: db_safexpress
+     MYSQL_USER: root
+     MYSQL_PASSWORD=: codesafe
+     MYSQL_ROOT_PASSWORD: codesafe
     ports:
       - "3307:3306"
     volumes:
       - mysql-data:/var/lib/mysql
 
+  phpmyadmin:
+    image: phpmyadmin:latest
+    ports:
+      - 9001:80
+    environment:
+      - PMA_ARBITRARY=1
 volumes:
   mysql-data:
