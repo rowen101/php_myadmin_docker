@@ -1,29 +1,18 @@
-version: '3'
-
-networks:
-  webapp:
+version: '3.8'
 
 services:
-  mysqldb:
-    container_name: mysqldb
-    image: mysql:8.1
-    ports:
-      - 3306:3306
+  mysql:
+    image: mysql:latest
+    container_name: my-mysql-container
     environment:
-        MYSQL_DATABASE: db_safexpress
-        MYSQL_PASSWORD=: secret
-        MYSQL_ROOT_PASSWORD: secret
+      MYSQL_ROOT_PASSWORD: codesafe
+      MYSQL_DATABASE: db_safexpress
+      MYSQL_USER: root
+      MYSQL_PASSWORD: codesafe
+    ports:
+      - "3306:3306"
     volumes:
-      - db-data:/var/lib/mysql
-    networks:
-      - webapp
-
-  phpmyadmin:
-      image: phpmyadmin:latest
-      ports:
-        - 9002:80
-      environment:
-        - PMA_ARBITRARY=1
+      - mysql-data:/var/lib/mysql
 
 volumes:
-    db-data: ~
+  mysql-data:
