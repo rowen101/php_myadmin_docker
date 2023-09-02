@@ -1,12 +1,11 @@
 version: '3.8'
 
 services:
-  db:
+  mysqldb:
     image: mysql
-    container_name: my-mysql-container
+    container_name: mysqldb
     environment:
      MYSQL_DATABASE: db_safexpress
-     MYSQL_USER: root
      MYSQL_PASSWORD=: codesafe
      MYSQL_ROOT_PASSWORD: codesafe
     ports:
