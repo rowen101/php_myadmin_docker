@@ -9,18 +9,9 @@ services:
      MYSQL_PASSWORD: codesafe
      MYSQL_ROOT_PASSWORD: codesafe
     ports:
-      - "3306:3306"
+      - ":3306"
     volumes:
       - mysql-data:/var/lib/mysql
 
-  phpmyadmin:
-    image: phpmyadmin:latest
-    ports:
-      - 9001:80
-    environment:
-      PMA_HOST: mysqldb
-      PMA_PORT: 3306
-      PMA_USER: root
-      PMA_PASSWORD: codesafe
 volumes:
   mysql-data:
