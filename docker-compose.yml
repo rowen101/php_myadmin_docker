@@ -9,7 +9,7 @@ services:
      MYSQL_PASSWORD: codesafe
      MYSQL_ROOT_PASSWORD: codesafe
     ports:
-      - ":3306"
+      - "63295:3306"
     volumes:
       - mysql-data:/var/lib/mysql
 
