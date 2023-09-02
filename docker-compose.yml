@@ -8,7 +8,6 @@ services:
      MYSQL_DATABASE: db_safexpress
      MYSQL_PASSWORD: codesafe
      MYSQL_ROOT_PASSWORD: codesafe
-     MYSQL_USER: app
     ports:
       - "3306:3306"
     volumes:
