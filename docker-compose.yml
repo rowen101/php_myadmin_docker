@@ -1,16 +1,15 @@
 version: '3.8'
 
 services:
-  mysql:
-    image: mysql:latest
+  db:
+    image: mysql
+    restart: always
     container_name: my-mysql-container
     environment:
       MYSQL_ROOT_PASSWORD: codesafe
       MYSQL_DATABASE: db_safexpress
-      MYSQL_USER: root
-      MYSQL_PASSWORD: codesafe
     ports:
-      - "3306:3306"
+      - "3307:3306"
     volumes:
       - mysql-data:/var/lib/mysql
 
